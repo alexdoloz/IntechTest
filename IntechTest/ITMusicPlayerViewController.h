@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ITMusicPlayerViewController.h
 //  IntechTest
 //
 //  Created by Alexander on 31.12.15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface ITMusicPlayerViewController : UIViewController
 
 @end
-

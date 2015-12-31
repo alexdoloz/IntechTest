@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		114316D61C356E2000636C7F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 114316D51C356E2000636C7F /* main.m */; };
 		114316D91C356E2000636C7F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 114316D81C356E2000636C7F /* AppDelegate.m */; };
-		114316DC1C356E2000636C7F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 114316DB1C356E2000636C7F /* ViewController.m */; };
 		114316DF1C356E2000636C7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 114316DD1C356E2000636C7F /* Main.storyboard */; };
 		114316E11C356E2000636C7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 114316E01C356E2000636C7F /* Assets.xcassets */; };
 		114316E41C356E2000636C7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 114316E21C356E2000636C7F /* LaunchScreen.storyboard */; };
+		114316ED1C356FF400636C7F /* ITMusicListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 114316EC1C356FF400636C7F /* ITMusicListViewController.m */; };
+		114316F21C35704700636C7F /* ITMusicPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 114316F11C35704700636C7F /* ITMusicPlayerViewController.m */; };
+		114316F61C35980D00636C7F /* ITMusicItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 114316F51C35980D00636C7F /* ITMusicItemCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +22,16 @@
 		114316D51C356E2000636C7F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		114316D71C356E2000636C7F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		114316D81C356E2000636C7F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		114316DA1C356E2000636C7F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		114316DB1C356E2000636C7F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		114316DE1C356E2000636C7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		114316E01C356E2000636C7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		114316E31C356E2000636C7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		114316E51C356E2000636C7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		114316EB1C356FF400636C7F /* ITMusicListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMusicListViewController.h; sourceTree = "<group>"; };
+		114316EC1C356FF400636C7F /* ITMusicListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITMusicListViewController.m; sourceTree = "<group>"; };
+		114316F01C35704700636C7F /* ITMusicPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMusicPlayerViewController.h; sourceTree = "<group>"; };
+		114316F11C35704700636C7F /* ITMusicPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITMusicPlayerViewController.m; sourceTree = "<group>"; };
+		114316F41C35980D00636C7F /* ITMusicItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMusicItemCell.h; sourceTree = "<group>"; };
+		114316F51C35980D00636C7F /* ITMusicItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITMusicItemCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +64,10 @@
 		114316D31C356E2000636C7F /* IntechTest */ = {
 			isa = PBXGroup;
 			children = (
+				114316F31C3597F400636C7F /* Cells */,
+				114316EE1C356FFB00636C7F /* VC */,
 				114316D71C356E2000636C7F /* AppDelegate.h */,
 				114316D81C356E2000636C7F /* AppDelegate.m */,
-				114316DA1C356E2000636C7F /* ViewController.h */,
-				114316DB1C356E2000636C7F /* ViewController.m */,
 				114316DD1C356E2000636C7F /* Main.storyboard */,
 				114316E01C356E2000636C7F /* Assets.xcassets */,
 				114316E21C356E2000636C7F /* LaunchScreen.storyboard */,
@@ -77,6 +83,26 @@
 				114316D51C356E2000636C7F /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		114316EE1C356FFB00636C7F /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				114316EB1C356FF400636C7F /* ITMusicListViewController.h */,
+				114316EC1C356FF400636C7F /* ITMusicListViewController.m */,
+				114316F01C35704700636C7F /* ITMusicPlayerViewController.h */,
+				114316F11C35704700636C7F /* ITMusicPlayerViewController.m */,
+			);
+			name = VC;
+			sourceTree = "<group>";
+		};
+		114316F31C3597F400636C7F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				114316F41C35980D00636C7F /* ITMusicItemCell.h */,
+				114316F51C35980D00636C7F /* ITMusicItemCell.m */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,9 +175,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				114316DC1C356E2000636C7F /* ViewController.m in Sources */,
+				114316ED1C356FF400636C7F /* ITMusicListViewController.m in Sources */,
 				114316D91C356E2000636C7F /* AppDelegate.m in Sources */,
+				114316F21C35704700636C7F /* ITMusicPlayerViewController.m in Sources */,
 				114316D61C356E2000636C7F /* main.m in Sources */,
+				114316F61C35980D00636C7F /* ITMusicItemCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
