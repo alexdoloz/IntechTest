@@ -65,6 +65,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="activityIndicator" destination="TQv-ux-OUu" id="zWe-cf-LmW"/>
                                             <outlet property="artistNameLabel" destination="Lcb-5g-sWW" id="WiG-ve-3eL"/>
                                             <outlet property="coverImageView" destination="y7H-6X-eY7" id="HaY-qZ-vx3"/>
                                             <outlet property="itemTitleLabel" destination="0JS-HC-wu2" id="K9E-xp-TH9"/>
