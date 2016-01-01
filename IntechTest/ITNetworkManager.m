@@ -7,9 +7,14 @@
 //
 
 #import "ITNetworkManager.h"
+#import "ITMusicItem.h"
+#import <AFNetworking.h>
+#import <EasyMapping.h>
+//#import <AFNetworking/af
 
 
 static NSString *const kAPIURLFormat = @"https://api-content-beeline.intech-global.com/public/marketplaces/1/tags/10/melodies?limit=%@&from=%@";
+NSString *const ITNetworkErrorDomain = @"ITNetworkErrorDomain";
 
 
 @implementation ITNetworkManager
@@ -27,7 +32,28 @@ static NSString *const kAPIURLFormat = @"https://api-content-beeline.intech-glob
     limit:(NSInteger)limitCount
     completion:(ITMusicItemsCompletionBlock)block {
     NSURL *url = [self URLForMusicItemsFrom:fromCount limit:limitCount];
-
+    AFHTTPSessionManager *httpManager = [AFHTTPSessionManager manager];
+    httpManager.responseSerializer = [AFJSONResponseSerializer serializer];
+    [httpManager GET:url.absoluteString parameters:nil
+        progress:nil
+        success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * responseDict) {
+            NSArray *melodies = responseDict[@"melodies"];
+            if (!melodies) {
+                NSError *error = [NSError errorWithDomain:ITNetworkErrorDomain code:111 userInfo:@{
+                    NSLocalizedDescriptionKey : @"Wrong JSON format"
+                }];
+                block(nil, error);
+                return;
+            }
+            NSArray *musicItems = [EKMapper arrayOfObjectsFromExternalRepresentation:melodies
+                withMapping:[ITMusicItem objectMapping]];
+            block(musicItems, nil);
+        }
+        failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            NSLog(@"%@", error);
+            block(nil, error);
+        }
+    ];
 }
 
 - (void)loadCoverImageForItem:(ITMusicItem *)item
@@ -39,7 +65,7 @@ static NSString *const kAPIURLFormat = @"https://api-content-beeline.intech-glob
 
 - (NSURL *)URLForMusicItemsFrom:(NSInteger)fromCount
     limit:(NSInteger)limitCount {
-    NSAssert(fromCount > 0 && limitCount > 0, @"Values must be positive");
+    NSAssert(fromCount >= 0 && limitCount > 0, @"Wrong value for fromCount or limitCount");
     NSString *urlString = [NSString stringWithFormat:kAPIURLFormat, @(limitCount), @(fromCount)];
     NSURL *url = [NSURL URLWithString:urlString];
     return url;

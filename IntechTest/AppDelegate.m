@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "ITNetworkManager.h"
+
 
 @interface AppDelegate ()
 
@@ -16,7 +18,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    ITNetworkManager *manager = [ITNetworkManager sharedManager];
+    [manager loadItemsFrom:1 limit:10 completion:^(NSArray<ITMusicItem *> *items, NSError *error) {
+        NSLog(@"Items: %@", items);
+    }];
     return YES;
 }
 

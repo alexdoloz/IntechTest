@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 
+extern NSString *const ITNetworkErrorDomain;
+
+
 @class ITMusicItem;
 
 

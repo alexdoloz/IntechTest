@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <EKMappingProtocol.h>
 
-@interface ITMusicItem : NSObject
+
+@interface ITMusicItem : NSObject<EKMappingProtocol>
+
+@property (nonatomic, copy) NSString *itemTitle;
+@property (nonatomic, copy) NSString *artist;
+@property (nonatomic) NSURL *coverImageURL;
+@property (nonatomic) NSURL *audioURL;
 
 @end
