@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -29,7 +30,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="119"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="TQv-ux-OUu">
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="TQv-ux-OUu">
                                                     <rect key="frame" x="50" y="50" width="20" height="20"/>
                                                     <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </activityIndicatorView>
@@ -40,29 +41,39 @@
                                                         <constraint firstAttribute="width" constant="90" id="mj0-hD-zbw"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fly Project" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lcb-5g-sWW">
-                                                    <rect key="frame" x="120" y="64" width="69" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" text="Fly Project" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lcb-5g-sWW">
+                                                    <rect key="frame" x="120" y="68" width="69" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toca Toca (Radio Edit)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0JS-HC-wu2">
-                                                    <rect key="frame" x="120" y="35" width="178" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toca Toca (Radio Edit)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0JS-HC-wu2">
+                                                    <rect key="frame" x="120" y="36" width="178" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="0JS-HC-wu2" firstAttribute="top" secondItem="y7H-6X-eY7" secondAttribute="top" constant="20" id="DM5-nS-p39"/>
+                                                <constraint firstItem="0JS-HC-wu2" firstAttribute="baseline" secondItem="y7H-6X-eY7" secondAttribute="centerY" constant="-8" id="2BX-on-BJF"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="Lcb-5g-sWW" secondAttribute="bottom" id="E0K-NS-Qhz"/>
+                                                <constraint firstItem="0JS-HC-wu2" firstAttribute="top" relation="greaterThanOrEqual" secondItem="dCJ-eY-fgr" secondAttribute="topMargin" id="LBb-Vf-z5C"/>
                                                 <constraint firstItem="Lcb-5g-sWW" firstAttribute="leading" secondItem="0JS-HC-wu2" secondAttribute="leading" id="MdE-nA-uHW"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="0JS-HC-wu2" secondAttribute="trailing" constant="8" id="PSa-LT-K8M"/>
                                                 <constraint firstItem="y7H-6X-eY7" firstAttribute="centerY" secondItem="dCJ-eY-fgr" secondAttribute="centerY" id="TmU-Ko-kei"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Lcb-5g-sWW" secondAttribute="trailing" constant="8" id="VnY-ag-BnX"/>
+                                                <constraint firstItem="TQv-ux-OUu" firstAttribute="centerY" secondItem="y7H-6X-eY7" secondAttribute="centerY" id="Zyu-id-I0p"/>
                                                 <constraint firstItem="0JS-HC-wu2" firstAttribute="leading" secondItem="y7H-6X-eY7" secondAttribute="trailing" constant="15" id="eiA-Xd-xta"/>
                                                 <constraint firstItem="y7H-6X-eY7" firstAttribute="leading" secondItem="dCJ-eY-fgr" secondAttribute="leading" constant="15" id="fUM-mK-mc1"/>
                                                 <constraint firstItem="Lcb-5g-sWW" firstAttribute="top" secondItem="0JS-HC-wu2" secondAttribute="bottom" constant="8" id="fxq-Ly-ftb"/>
+                                                <constraint firstItem="TQv-ux-OUu" firstAttribute="centerX" secondItem="y7H-6X-eY7" secondAttribute="centerX" id="j2W-NV-gKp"/>
+                                                <constraint firstItem="Lcb-5g-sWW" firstAttribute="top" secondItem="y7H-6X-eY7" secondAttribute="centerY" constant="8" id="jQu-Ww-hcO"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="fxq-Ly-ftb"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="activityIndicator" destination="TQv-ux-OUu" id="zWe-cf-LmW"/>
