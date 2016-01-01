@@ -160,7 +160,6 @@ static NSString *const kShowMusicPlayerSegueIdentifier = @"SHOW_MUSIC_PLAYER_SEG
     NSIndexPath *bottomIndexPath = [NSIndexPath indexPathForRow:self.items.count - bottomMargin inSection:0];
     NSArray *sortedVisibleIndexPaths = [[self.tableView indexPathsForVisibleRows] sortedArrayUsingSelector:@selector(compare:)];
     NSIndexPath *lastIndexPath = [sortedVisibleIndexPaths lastObject];
-//    NSLog(@"Last index path: %@", lastIndexPath);
     
     if ([lastIndexPath compare:bottomIndexPath] == NSOrderedDescending) {
         [self loadMoreItems];
