@@ -34,20 +34,20 @@
                                                     <rect key="frame" x="50" y="50" width="20" height="20"/>
                                                     <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </activityIndicatorView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y7H-6X-eY7">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y7H-6X-eY7">
                                                     <rect key="frame" x="15" y="15" width="90" height="90"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="90" id="k4U-Sn-JOY"/>
                                                         <constraint firstAttribute="width" constant="90" id="mj0-hD-zbw"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" text="Fly Project" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lcb-5g-sWW">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" text="Fly Project" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="Lcb-5g-sWW">
                                                     <rect key="frame" x="120" y="68" width="69" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toca Toca (Radio Edit)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0JS-HC-wu2">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toca Toca (Radio Edit)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="0JS-HC-wu2">
                                                     <rect key="frame" x="120" y="36" width="178" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -144,10 +144,41 @@
                         <viewControllerLayoutGuide type="bottom" id="EWv-LS-MvV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6RE-mq-HBH">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="O5Y-2S-Xwy">
+                                <rect key="frame" x="197" y="206" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XoU-1v-ZaE">
+                                <rect key="frame" x="192" y="344" width="30" height="30"/>
+                                <connections>
+                                    <action selector="playPausePressed:" destination="fQN-e8-05h" eventType="touchUpInside" id="puB-Zr-xYa"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EcD-p5-eMh">
+                                <rect key="frame" x="87" y="96" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="dQQ-ff-v68"/>
+                                    <constraint firstAttribute="height" constant="240" id="saO-SN-otM"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EcD-p5-eMh" firstAttribute="centerY" secondItem="O5Y-2S-Xwy" secondAttribute="centerY" id="0Hq-FV-V9i"/>
+                            <constraint firstItem="EcD-p5-eMh" firstAttribute="top" secondItem="SEK-dS-vKT" secondAttribute="bottom" constant="32" id="92V-4e-uue"/>
+                            <constraint firstItem="XoU-1v-ZaE" firstAttribute="centerX" secondItem="EcD-p5-eMh" secondAttribute="centerX" id="Mui-5d-r5d"/>
+                            <constraint firstItem="EcD-p5-eMh" firstAttribute="centerX" secondItem="6RE-mq-HBH" secondAttribute="centerX" id="S6T-Ie-mCh"/>
+                            <constraint firstItem="EcD-p5-eMh" firstAttribute="centerX" secondItem="O5Y-2S-Xwy" secondAttribute="centerX" id="cXZ-jx-Ufq"/>
+                            <constraint firstItem="XoU-1v-ZaE" firstAttribute="top" secondItem="EcD-p5-eMh" secondAttribute="bottom" constant="8" id="hqM-zm-ad4"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="coverImageView" destination="EcD-p5-eMh" id="KbV-If-FWj"/>
+                        <outlet property="playPauseButton" destination="XoU-1v-ZaE" id="HF1-ps-YRy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FeX-jy-mSm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

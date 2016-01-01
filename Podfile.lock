@@ -17,13 +17,16 @@ PODS:
   - EasyMapping (0.15.4):
     - EasyMapping/Core (= 0.15.4)
   - EasyMapping/Core (0.15.4)
+  - StreamingKit (0.1.28)
 
 DEPENDENCIES:
   - AFNetworking
   - EasyMapping
+  - StreamingKit
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
   EasyMapping: e1f5942b26e1f5ae7129032117721a2972844f2f
+  StreamingKit: 3b9c78009275ef1caf198bae44cfb982fee65d4d
 
 COCOAPODS: 0.39.0

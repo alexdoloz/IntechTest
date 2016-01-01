@@ -7,31 +7,55 @@
 //
 
 #import "ITMusicPlayerViewController.h"
+#import "ITMusicItem.h"
+#import <UIImageView+AFNetworking.h>
+#import <STKAudioPlayer.h>
+
 
 @interface ITMusicPlayerViewController ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *coverImageView;
+@property (weak, nonatomic) IBOutlet UIButton *playPauseButton;
+@property (nonatomic) STKAudioPlayer *player;
+
+@property (nonatomic) BOOL playing;
+
 @end
+
 
 @implementation ITMusicPlayerViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.player = [[STKAudioPlayer alloc] init];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.title = self.musicItem.itemTitle;
+    [self.coverImageView setImageWithURL:self.musicItem.coverImageURL];
+    [self.player playURL:self.musicItem.audioURL];
+    self.playing = YES;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.player stop];
 }
-*/
+
+- (IBAction)playPausePressed:(id)sender {
+    self.playing = !self.playing;
+}
+
+- (void)setPlaying:(BOOL)playing {
+    if (playing == _playing) return;
+    _playing = playing;
+    if (_playing) {
+        [self.player resume];
+        [self.playPauseButton setImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
+    } else {
+        [self.player pause];
+        [self.playPauseButton setImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
+    }
+}
 
 @end

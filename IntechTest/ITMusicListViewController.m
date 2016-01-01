@@ -12,10 +12,14 @@
 #import "ITMusicItemCell.h"
 #import "ITLoadingCell.h"
 #import <UIImageView+AFNetworking.h>
+#import "ITMusicPlayerViewController.h"
+#import <STKAudioPlayer.h>
 
 
 static NSString *const kMusicItemCellIdentifier = @"MUSIC_ITEM_CELL";
 static NSString *const kLoadingCellIdentifier = @"LOADING_CELL";
+
+static NSString *const kShowMusicPlayerSegueIdentifier = @"SHOW_MUSIC_PLAYER_SEGUE";
 
 
 @interface ITMusicListViewController ()<UITableViewDataSource, UITableViewDelegate>
@@ -35,8 +39,14 @@ static NSString *const kLoadingCellIdentifier = @"LOADING_CELL";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.items = [NSMutableArray new];
-//    [self loadMusicItems];
     [self loadMoreItems];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:kShowMusicPlayerSegueIdentifier]) {
+        ITMusicPlayerViewController *playerVC = segue.destinationViewController;
+        playerVC.musicItem = (ITMusicItem *)sender;
+    }
 }
 
 - (void)loadMusicItems {
@@ -81,10 +91,6 @@ static NSString *const kLoadingCellIdentifier = @"LOADING_CELL";
         }
         [strongSelf.tableView insertRowsAtIndexPaths:indexPaths
             withRowAnimation:UITableViewRowAnimationLeft];
-//        if (strongSelf.isListExausted) {
-//            NSIndexPath *lastIndexPath = [NSIndexPath indexPathForRow:            [strongSelf.tableView numberOfRowsInSection:0] - 1 inSection:0];
-//            [strongSelf.tableView deleteRowsAtIndexPaths:@[lastIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-//        }
         [strongSelf.tableView endUpdates];
         [strongSelf.tableView reloadData];
     }];
@@ -108,6 +114,10 @@ static NSString *const kLoadingCellIdentifier = @"LOADING_CELL";
     [alert addAction:retry];
     [alert addAction:cancel];
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (BOOL)isIndexPathForLoadingCell:(NSIndexPath *)indexPath {
+    return indexPath.row == self.items.count;
 }
 
 #pragma mark - UITableViewDataSource
@@ -142,12 +152,9 @@ static NSString *const kLoadingCellIdentifier = @"LOADING_CELL";
         120.0f;
 }
 
-- (BOOL)isIndexPathForLoadingCell:(NSIndexPath *)indexPath {
-    return indexPath.row == self.items.count;
-}
+#pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    NSLog(@"%@", NSStringFromCGPoint(scrollView.contentOffset));
     if (self.isListExausted || self.loadingInProgress) return;
     NSInteger bottomMargin = 2;
     NSIndexPath *bottomIndexPath = [NSIndexPath indexPathForRow:self.items.count - bottomMargin inSection:0];
@@ -158,6 +165,14 @@ static NSString *const kLoadingCellIdentifier = @"LOADING_CELL";
     if ([lastIndexPath compare:bottomIndexPath] == NSOrderedDescending) {
         [self loadMoreItems];
     }
+}
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ITMusicItem *item = self.items[indexPath.row];
+    [self performSegueWithIdentifier:kShowMusicPlayerSegueIdentifier
+        sender:item];
 }
 
 @end

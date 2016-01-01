@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+
+@class ITMusicItem;
+
+
 @interface ITMusicPlayerViewController : UIViewController
+
+@property (nonatomic) ITMusicItem *musicItem;
 
 @end
