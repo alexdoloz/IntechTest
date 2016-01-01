@@ -7,31 +7,55 @@
 //
 
 #import "ITMusicListViewController.h"
+#import "ITMusicItem.h"
+#import "ITNetworkManager.h"
+#import "ITMusicItemCell.h"
+#import <UIImageView+AFNetworking.h>
 
-@interface ITMusicListViewController ()
+
+static NSString *const kCellIdentifier = @"MUSIC_ITEM_CELL";
+
+
+@interface ITMusicListViewController ()<UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic) NSArray<ITMusicItem *> *items;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
+
 
 @implementation ITMusicListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self loadMusicItems];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)loadMusicItems {
+    ITNetworkManager *manager = [ITNetworkManager sharedManager];
+    __weak typeof(self) weakSelf = self;
+    [manager loadItemsFrom:0 limit:10 completion:^(NSArray<ITMusicItem *> *items, NSError *error) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        strongSelf.items = items;
+        [strongSelf.tableView reloadData];
+    }];
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - UITableViewDataSource
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)tableView:(UITableView *)tableView
+    numberOfRowsInSection:(NSInteger)section {
+    return self.items.count;
 }
-*/
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    ITMusicItemCell *cell = (ITMusicItemCell *)[tableView dequeueReusableCellWithIdentifier:kCellIdentifier forIndexPath:indexPath];
+    ITMusicItem *item = self.items[indexPath.row];
+    [cell.coverImageView setImageWithURL:item.coverImageURL];
+    cell.artistNameLabel.text = item.artist;
+    cell.itemTitleLabel.text = item.itemTitle;
+    return cell;
+}
+
 
 @end

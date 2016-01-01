@@ -18,10 +18,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    ITNetworkManager *manager = [ITNetworkManager sharedManager];
-    [manager loadItemsFrom:1 limit:10 completion:^(NSArray<ITMusicItem *> *items, NSError *error) {
-        NSLog(@"Items: %@", items);
-    }];
+
     return YES;
 }
 

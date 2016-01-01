@@ -29,6 +29,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="119"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="TQv-ux-OUu">
+                                                    <rect key="frame" x="50" y="50" width="20" height="20"/>
+                                                    <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                </activityIndicatorView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y7H-6X-eY7">
                                                     <rect key="frame" x="15" y="15" width="90" height="90"/>
                                                     <constraints>
@@ -67,6 +71,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="2ZZ-OY-Kv2"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="HpN-kX-EfJ"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -79,6 +87,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Музыка" id="Pzu-cr-dJ9"/>
                     <connections>
+                        <outlet property="tableView" destination="gA6-Of-Dco" id="HGh-in-4Qq"/>
                         <segue destination="fQN-e8-05h" kind="show" identifier="SHOW_MUSIC_PLAYER_SEGUE" id="JAg-Qe-fjv"/>
                     </connections>
                 </viewController>
