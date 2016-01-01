@@ -70,6 +70,34 @@
                                             <outlet property="itemTitleLabel" destination="0JS-HC-wu2" id="K9E-xp-TH9"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LOADING_CELL" rowHeight="40" id="NcJ-xH-CyL" customClass="ITLoadingCell">
+                                        <rect key="frame" x="0.0" y="212" width="600" height="40"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NcJ-xH-CyL" id="sjo-SS-2Fk">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="39"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Загрузка..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8MB-wr-1Es">
+                                                    <rect key="frame" x="264" y="11" width="73" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="eYD-7C-r0u">
+                                                    <rect key="frame" x="236" y="10" width="20" height="20"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="eYD-7C-r0u" firstAttribute="centerY" secondItem="8MB-wr-1Es" secondAttribute="centerY" id="E4T-b4-TDg"/>
+                                                <constraint firstItem="8MB-wr-1Es" firstAttribute="centerY" secondItem="sjo-SS-2Fk" secondAttribute="centerY" id="MJ6-Ub-WsM"/>
+                                                <constraint firstItem="8MB-wr-1Es" firstAttribute="centerX" secondItem="sjo-SS-2Fk" secondAttribute="centerX" id="P8k-Kq-sm8"/>
+                                                <constraint firstItem="8MB-wr-1Es" firstAttribute="leading" secondItem="eYD-7C-r0u" secondAttribute="trailing" constant="8" id="v9B-Zi-72L"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="activityIndicator" destination="eYD-7C-r0u" id="1h4-Ik-Y6e"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="2ZZ-OY-Kv2"/>

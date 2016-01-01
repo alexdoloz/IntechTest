@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		112DE7551C36E99000C1C0FB /* ITLoadingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 112DE7541C36E99000C1C0FB /* ITLoadingCell.m */; };
 		114316D61C356E2000636C7F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 114316D51C356E2000636C7F /* main.m */; };
 		114316D91C356E2000636C7F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 114316D81C356E2000636C7F /* AppDelegate.m */; };
 		114316DF1C356E2000636C7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 114316DD1C356E2000636C7F /* Main.storyboard */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		112DE7531C36E99000C1C0FB /* ITLoadingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITLoadingCell.h; sourceTree = "<group>"; };
+		112DE7541C36E99000C1C0FB /* ITLoadingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITLoadingCell.m; sourceTree = "<group>"; };
 		114316D11C356E1F00636C7F /* IntechTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntechTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		114316D51C356E2000636C7F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		114316D71C356E2000636C7F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -115,6 +118,8 @@
 			children = (
 				114316F41C35980D00636C7F /* ITMusicItemCell.h */,
 				114316F51C35980D00636C7F /* ITMusicItemCell.m */,
+				112DE7531C36E99000C1C0FB /* ITLoadingCell.h */,
+				112DE7541C36E99000C1C0FB /* ITLoadingCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -273,6 +278,7 @@
 				114316F21C35704700636C7F /* ITMusicPlayerViewController.m in Sources */,
 				114316D61C356E2000636C7F /* main.m in Sources */,
 				114316F61C35980D00636C7F /* ITMusicItemCell.m in Sources */,
+				112DE7551C36E99000C1C0FB /* ITLoadingCell.m in Sources */,
 				114316F91C35C71F00636C7F /* ITNetworkManager.m in Sources */,
 				114316FC1C36D0AD00636C7F /* ITMusicItem.m in Sources */,
 			);

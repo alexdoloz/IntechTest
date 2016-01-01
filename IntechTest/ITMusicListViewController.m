@@ -10,16 +10,20 @@
 #import "ITMusicItem.h"
 #import "ITNetworkManager.h"
 #import "ITMusicItemCell.h"
+#import "ITLoadingCell.h"
 #import <UIImageView+AFNetworking.h>
 
 
-static NSString *const kCellIdentifier = @"MUSIC_ITEM_CELL";
+static NSString *const kMusicItemCellIdentifier = @"MUSIC_ITEM_CELL";
+static NSString *const kLoadingCellIdentifier = @"LOADING_CELL";
 
 
 @interface ITMusicListViewController ()<UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic) NSArray<ITMusicItem *> *items;
+@property (nonatomic) NSMutableArray<ITMusicItem *> *items;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic) NSInteger limitCount;
 
 @end
 
@@ -28,6 +32,7 @@ static NSString *const kCellIdentifier = @"MUSIC_ITEM_CELL";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.items = [NSMutableArray new];
     [self loadMusicItems];
 }
 
@@ -36,7 +41,7 @@ static NSString *const kCellIdentifier = @"MUSIC_ITEM_CELL";
     __weak typeof(self) weakSelf = self;
     [manager loadItemsFrom:0 limit:10 completion:^(NSArray<ITMusicItem *> *items, NSError *error) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
-        strongSelf.items = items;
+        [strongSelf.items addObjectsFromArray:items];
         [strongSelf.tableView reloadData];
     }];
 }
@@ -45,11 +50,17 @@ static NSString *const kCellIdentifier = @"MUSIC_ITEM_CELL";
 
 - (NSInteger)tableView:(UITableView *)tableView
     numberOfRowsInSection:(NSInteger)section {
-    return self.items.count;
+    return self.items.count + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ITMusicItemCell *cell = (ITMusicItemCell *)[tableView dequeueReusableCellWithIdentifier:kCellIdentifier forIndexPath:indexPath];
+    if ([self isLastIndexPath:indexPath]) {
+        ITLoadingCell *cell = (ITLoadingCell *)[tableView dequeueReusableCellWithIdentifier:kLoadingCellIdentifier forIndexPath:indexPath];
+        [cell.activityIndicator startAnimating];
+        return cell;
+    }
+    ITMusicItemCell *cell = (ITMusicItemCell *)[tableView dequeueReusableCellWithIdentifier:kMusicItemCellIdentifier
+    forIndexPath:indexPath];
     ITMusicItem *item = self.items[indexPath.row];
     [cell.coverImageView setImageWithURL:item.coverImageURL];
     cell.artistNameLabel.text = item.artist;
@@ -57,5 +68,14 @@ static NSString *const kCellIdentifier = @"MUSIC_ITEM_CELL";
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [self isLastIndexPath:indexPath] ?
+        40.0f :
+        120.0f;
+}
+
+- (BOOL)isLastIndexPath:(NSIndexPath *)indexPath {
+    return indexPath.row == self.items.count;
+}
 
 @end
