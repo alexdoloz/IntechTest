@@ -15,6 +15,8 @@
 		114316ED1C356FF400636C7F /* ITMusicListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 114316EC1C356FF400636C7F /* ITMusicListViewController.m */; };
 		114316F21C35704700636C7F /* ITMusicPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 114316F11C35704700636C7F /* ITMusicPlayerViewController.m */; };
 		114316F61C35980D00636C7F /* ITMusicItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 114316F51C35980D00636C7F /* ITMusicItemCell.m */; };
+		114316F91C35C71F00636C7F /* ITNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 114316F81C35C71F00636C7F /* ITNetworkManager.m */; };
+		114316FC1C36D0AD00636C7F /* ITMusicItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 114316FB1C36D0AD00636C7F /* ITMusicItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,10 @@
 		114316F11C35704700636C7F /* ITMusicPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITMusicPlayerViewController.m; sourceTree = "<group>"; };
 		114316F41C35980D00636C7F /* ITMusicItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMusicItemCell.h; sourceTree = "<group>"; };
 		114316F51C35980D00636C7F /* ITMusicItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITMusicItemCell.m; sourceTree = "<group>"; };
+		114316F71C35C71F00636C7F /* ITNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITNetworkManager.h; sourceTree = "<group>"; };
+		114316F81C35C71F00636C7F /* ITNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITNetworkManager.m; sourceTree = "<group>"; };
+		114316FA1C36D0AD00636C7F /* ITMusicItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMusicItem.h; sourceTree = "<group>"; };
+		114316FB1C36D0AD00636C7F /* ITMusicItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITMusicItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +70,7 @@
 		114316D31C356E2000636C7F /* IntechTest */ = {
 			isa = PBXGroup;
 			children = (
+				114316FD1C36D0B300636C7F /* Model */,
 				114316F31C3597F400636C7F /* Cells */,
 				114316EE1C356FFB00636C7F /* VC */,
 				114316D71C356E2000636C7F /* AppDelegate.h */,
@@ -103,6 +110,17 @@
 				114316F51C35980D00636C7F /* ITMusicItemCell.m */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		114316FD1C36D0B300636C7F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				114316FA1C36D0AD00636C7F /* ITMusicItem.h */,
+				114316FB1C36D0AD00636C7F /* ITMusicItem.m */,
+				114316F71C35C71F00636C7F /* ITNetworkManager.h */,
+				114316F81C35C71F00636C7F /* ITNetworkManager.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +198,8 @@
 				114316F21C35704700636C7F /* ITMusicPlayerViewController.m in Sources */,
 				114316D61C356E2000636C7F /* main.m in Sources */,
 				114316F61C35980D00636C7F /* ITMusicItemCell.m in Sources */,
+				114316F91C35C71F00636C7F /* ITNetworkManager.m in Sources */,
+				114316FC1C36D0AD00636C7F /* ITMusicItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
